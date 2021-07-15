@@ -21,4 +21,7 @@ class Post {
     data['body'] = this.body;
     return data;
   }
+
+  @override
+  String toString() => "userId: $userId, id: $id, title: $title, body: $title";
 }
