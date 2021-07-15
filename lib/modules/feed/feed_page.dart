@@ -12,14 +12,23 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   @override
-  void initState(){
-    widget.controller.listen((status) => setState(() {}));
+  void initState() {
+    widget.controller.getPosts();
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      widget.controller.listen((status) => setState(() {}));
+    });
     super.initState();
   }
 
   @override
+  void dispose() {
+    print("disposed");
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if(widget.controller.status == HomeStatus.success) {
+    if (widget.controller.status == HomeStatus.success) {
       return ListView.builder(
         itemCount: widget.controller.posts.length,
         itemBuilder: (_, index) => ItemListTileWidget(
