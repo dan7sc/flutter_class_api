@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 
 class Post {
@@ -29,13 +30,11 @@ class Post {
 
 void getPosts() async {
   final baseURL = "http://jsonplaceholder.typicode.com";
-  var url = Uri.parse(
-    '$baseURL/posts',
-  );
-  final response = await http.get(url);
+  final client = Dio(BaseOptions(baseUrl: baseURL));
+  final response = await client.get("/posts");
   print(response.statusCode);
   if (response.statusCode == 200) {
-    final json = jsonDecode(response.body) as List;
+    final json = response.data as List;
     final posts = json.map((e) => Post.fromJson(e)).toList();
     print(posts);
   }
