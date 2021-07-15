@@ -23,6 +23,7 @@ class _FeedPageState extends State<FeedPage> {
   @override
   void dispose() {
     print("disposed");
+    widget.controller.dispose();
     super.dispose();
   }
 

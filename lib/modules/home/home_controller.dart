@@ -26,4 +26,8 @@ class HomeController {
   void listen(Function(HomeStatus status) onChange) {
     _onListen = onChange;
   }
+
+  void dispose() {
+    _onListen = null;
+  }
 }
