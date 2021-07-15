@@ -7,7 +7,7 @@ void getPosts() async {
   var url = Uri.parse(
     '$baseURL/posts/1'
   );
-  final response = await http.put(url, body: {"name": "Daniel"});
+  final response = await http.delete(url, body: {"name": "Daniel"});
   print(response.statusCode);
   if(response.statusCode == 200) {
     final json = jsonDecode(response.body);
