@@ -5,7 +5,7 @@ enum HomeStatus { empty, loading, success, error }
 
 class HomeController {
   final repository = HomeRepository();
-  Function? _onListen;
+  Function(HomeStatus status)? _onListen;
   var posts = <Post>[];
   var status = HomeStatus.empty;
 
