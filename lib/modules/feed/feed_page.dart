@@ -13,8 +13,8 @@ class FeedPage extends StatefulWidget {
 class _FeedPageState extends State<FeedPage> {
   @override
   void initState() {
-    widget.controller.getPosts();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      widget.controller.getPosts();
       widget.controller.listen((status) {
         if (!mounted) setState(() {});
       });
