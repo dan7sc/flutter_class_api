@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 void getPosts() async {
   final baseURL = "http://jsonplaceholder.typicode.com";
   var url = Uri.parse(
-    '$baseURL/post'
+    '$baseURL/posts'
   );
   final response = await http.post(url, body: {"name": "Daniel"});
   print(response.statusCode);
