@@ -25,11 +25,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListView.builder(
+      body: controller.status == HomeStatus.success
+      ? ListView.builder(
         itemCount: controller.posts.length,
         itemBuilder: (_, index) => ItemListTileWidget(
           title: controller.posts[index].title ?? "",
         ),
+      )
+      : Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }
