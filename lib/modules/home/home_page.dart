@@ -19,9 +19,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     controller.getPosts();
-    controller.listen((status) {
-      setState(() {});
-    });
     super.initState();
   }
 

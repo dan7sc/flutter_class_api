@@ -12,6 +12,12 @@ class FeedPage extends StatefulWidget {
 
 class _FeedPageState extends State<FeedPage> {
   @override
+  void initState(){
+    widget.controller.listen((status) => setState(() {}));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     if(widget.controller.status == HomeStatus.success) {
       return ListView.builder(
