@@ -1,9 +1,6 @@
-import 'package:class_api/modules/home/home_controller.dart';
+import 'package:class_api/modules/home/home_page.dart';
+import 'package:flutter/material.dart';
 
 void main() async {
-  final controller = HomeController();
-  controller.listen((status) {
-    print(status);
-  });
-  controller.getPosts();
+  runApp(MaterialApp(home: HomePage()));
 }
