@@ -19,7 +19,11 @@ class HomeController {
   void update(HomeStatus status) {
     this.status = status;
     if (_onListen != null) {
-      _onListen!();
+      _onListen!(this.status);
     }
+  }
+
+  void listen(Function(HomeStatus status) onChange) {
+    _onListen = onChange;
   }
 }

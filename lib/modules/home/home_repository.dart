@@ -6,7 +6,6 @@ class HomeRepository {
 
   Future<List<Post>> getPosts() async {
     final response = await client.get("/posts");
-    print(response.statusCode);
     if (response.statusCode == 200) {
       final json = response.data as List;
       final posts = json.map((e) => Post.fromJson(e)).toList();
