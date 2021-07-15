@@ -5,15 +5,4 @@ void main() async {
   print(controller.status);
   await controller.getPosts();
   print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
-  print(controller.status);
 }

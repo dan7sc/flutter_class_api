@@ -5,12 +5,21 @@ enum HomeStatus { empty, loading, success, error }
 
 class HomeController {
   final repository = HomeRepository();
+  Function? _onListen;
   var posts = <Post>[];
   var status = HomeStatus.empty;
 
   Future<void> getPosts() async {
-    status = HomeStatus.loading;
+    update(HomeStatus.loading);
     final response = await repository.getPosts();
     posts = response;
+    update(HomeStatus.success);
+  }
+
+  void update(HomeStatus status) {
+    this.status = status;
+    if (_onListen != null) {
+      _onListen!();
+    }
   }
 }
